@@ -17,6 +17,12 @@ public class MessageController {
 
     Logger logger = Logger.getLogger(MessageController.class);
     
+    /**
+     * Method to send Messages to SQS
+     * 
+     * @param inputMessage
+     * @return
+     */
 	@RequestMapping("/message/send/")
     public String sendMessage(@RequestParam(value="message",required=false) String inputMessage) {
     	
@@ -48,6 +54,11 @@ public class MessageController {
     	return messageId;
     }
 	
+	/**
+	 * Method to receive messages from SQS
+	 * 
+	 * @return
+	 */
 	@RequestMapping("/message/receive/")
     public Set<String> receiveMessages() {
     	
